@@ -33,17 +33,17 @@
             if(category > 0)
             {
                 var categoryName = db.Categories.FirstOrDefault(x => x.Id == category)?.Name; 
-                op.Where(x => x.category == categoryName);
+                op = op.Where(x => x.category == categoryName);
             }
 
             if (!string.IsNullOrEmpty(difficulty))
             {
-                op.Where(x => x.difficulty == difficulty);
+                op = op.Where(x => x.difficulty == difficulty);
             }
 
             if (!string.IsNullOrEmpty(type))
             {
-                op.Where(x => x.type == type);
+                op = op.Where(x => x.type == type);
             }
 
             var results =  await op.OrderBy(r => Guid.NewGuid()).Take(amount).ToListAsync();
