@@ -1,6 +1,7 @@
 ﻿namespace TriviaDb.DataAccess.Models
 {
     using Newtonsoft.Json;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -14,7 +15,14 @@
         [Key]
         [Required]
         public int Id { get; set; }
-       
+        [NotMapped]
+        public Guid RandomOrder
+        {
+            get
+            {
+                return Guid.NewGuid();
+            }
+        }
 
         public string category { get; set; }
         public string type { get; set; }

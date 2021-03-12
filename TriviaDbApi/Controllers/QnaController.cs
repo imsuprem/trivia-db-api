@@ -29,24 +29,29 @@
                 amount = 50;
             }
 
-            var op = db.QuestionAnswers.Where(x => true);
+            var ops = await db.QuestionAnswers.Where(x => true).ToListAsync();
+            IEnumerable<QuestionAnswers> op;
             if(category > 0)
             {
                 var categoryName = db.Categories.FirstOrDefault(x => x.Id == category)?.Name; 
-                op = op.Where(x => x.category == categoryName);
+                op = ops.Where(x => x.category == categoryName);
+            }
+            else
+            {
+                op = ops;
             }
 
-            if (!string.IsNullOrEmpty(difficulty))
+            if (!string.IsNullOrEmpty(difficulty) && difficulty!= "0")
             {
                 op = op.Where(x => x.difficulty == difficulty);
             }
 
-            if (!string.IsNullOrEmpty(type))
+            if (!string.IsNullOrEmpty(type) && type != "0")
             {
                 op = op.Where(x => x.type == type);
             }
-
-            var results =  await op.OrderBy(r => Guid.NewGuid()).Take(amount).ToListAsync();
+            var myGuid = Guid.NewGuid();
+            var results =  op.OrderBy(r => r.RandomOrder).Take(amount).ToList();
 
             return new AnswersOutput { results = results };
         }
