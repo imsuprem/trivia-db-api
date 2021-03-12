@@ -1,0 +1,77 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "Entertainment: Video Games",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "Super Mario Bros. was released in 1990.",
+      "correct_answer": "False",
+      "incorrect_answers": [ "True" ]
+    },
+    {
+      "category": "History",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "The Kingdom of Prussia briefly held land in Estonia.",
+      "correct_answer": "False",
+      "incorrect_answers": [ "True" ]
+    },
+    {
+      "category": "History",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "Sargon II, a king of the Neo-Assyrian Empire, was a direct descendant of Sargon of Akkad.",
+      "correct_answer": "False",
+      "incorrect_answers": [ "True" ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "MacOS is based on Linux.",
+      "correct_answer": "False",
+      "incorrect_answers": [ "True" ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "TF2: The Medic will be credited for an assist if he heals a Spy that successfully saps a building.",
+      "correct_answer": "True",
+      "incorrect_answers": [ "False" ]
+    },
+    {
+      "category": "Science: Gadgets",
+      "type": "boolean",
+      "difficulty": "easy",
+      "question": "Microphones can be used not only to pick up sound, but also to project sound similar to a speaker.",
+      "correct_answer": "True",
+      "incorrect_answers": [ "False" ]
+    },
+    {
+      "category": "Entertainment: Japanese Anime & Manga",
+      "type": "boolean",
+      "difficulty": "easy",
+      "question": "In the &quot;To Love-Ru&quot; series, Golden Darkness is sent to kill Lala Deviluke.",
+      "correct_answer": "False",
+      "incorrect_answers": [ "True" ]
+    },
+    {
+      "category": "History",
+      "type": "boolean",
+      "difficulty": "easy",
+      "question": "The United States of America was the first country to launch a man into space.",
+      "correct_answer": "False",
+      "incorrect_answers": [ "True" ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "boolean",
+      "difficulty": "easy",
+      "question": "Slovakia is a member of European Union-",
+      "correct_answer": "True",
+      "incorrect_answers": [ "False" ]
+    }
+  ]
+}
