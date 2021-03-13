@@ -22,19 +22,20 @@
         }
 
         [HttpGet]
-        public async Task<AnswersOutput> Index(int category, string difficulty, string type, int amount = 10)
+        public async Task<AnswersOutput> Index(string category, string difficulty, string type, int amount = 10)
         {
             if (amount > 50)
             {
                 amount = 50;
             }
+            var categoryArray = category?.Split(',').Select(Int32.Parse).ToList();
 
             var ops = await db.QuestionAnswers.Where(x => true).ToListAsync();
             IEnumerable<QuestionAnswers> op;
-            if(category > 0)
+            if(category.Length > 0)
             {
-                var categoryName = db.Categories.FirstOrDefault(x => x.Id == category)?.Name; 
-                op = ops.Where(x => x.category == categoryName);
+                var categoryNames = db.Categories.Where(x => categoryArray.Contains(x.Id))?.Select(x => x.Name).ToList(); 
+                op = ops.Where(x => categoryNames.Contains(x.category));
             }
             else
             {
