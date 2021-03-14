@@ -8,6 +8,7 @@
     using System.Linq;
     using System.Threading.Tasks;
     using TriviaDb.DataAccess;
+    using TriviaDb.DataAccess.ExtentionMethods;
     using TriviaDb.DataAccess.Models;
 
     [ApiController]
@@ -32,7 +33,7 @@
 
             var ops = await db.QuestionAnswers.Where(x => true).ToListAsync();
             IEnumerable<QuestionAnswers> op;
-            if(category.Length > 0)
+            if(categoryArray != null && !categoryArray.Any(x => x == 0))
             {
                 var categoryNames = db.Categories.Where(x => categoryArray.Contains(x.Id))?.Select(x => x.Name).ToList(); 
                 op = ops.Where(x => categoryNames.Contains(x.category));
@@ -63,6 +64,16 @@
         {
 
             return await db.QuestionAnswers.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        [HttpPost]
+        [Route("add")]
+        public async Task<int> AddQuestion(QuestionAnswers qna)
+        {
+            qna.Id = qna.question.GetDeterministicHashCode();
+            await db.QuestionAnswers.AddAsync(qna);
+            db.SaveChanges();
+            return qna.Id;
         }
     }
 }

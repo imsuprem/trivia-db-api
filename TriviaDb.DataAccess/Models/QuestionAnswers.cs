@@ -34,6 +34,7 @@
         public string incorrect_answers_string 
         {get; set;}
 
+        public string imageId { get; set; }
 
     }
 
